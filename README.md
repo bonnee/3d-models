@@ -3,7 +3,7 @@ Collection of self-designed 3D models
 
 ## Table of contents
 ### [alps_keychain](/alps_keychain)
-A keychain for Alps/Matias keyswitches
+A keychain for Alps/Matias keyswitches. [Thingiverse link](https://www.thingiverse.com/thing:4214306)
 ### [ender5_cable_bracket](/ender5_cable_bracket)
 A bracket to retain the carriage cables on an Ender 5
 ### [shower_shelf_holder](/shower_shelf_holder)
