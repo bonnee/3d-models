@@ -14,3 +14,5 @@ Bracket to hold recessed spotlights in a constrained space
 Recreation of a bracket used to hold a shelf in a shower
 ### [tool_holder](/tool_holder)
 Remix of a popular Ender 5 tool holder with tweezers holder. [Thingiverse link](https://www.thingiverse.com/thing:4222592)
+### [toorx_brx300_mount](/toorx_brx300_mount)
+Mounting insert for Toorx BRX300 exercise bike
