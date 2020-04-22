@@ -6,6 +6,8 @@ Collection of self-designed 3D models
 A keychain for Alps/Matias keyswitches. [Thingiverse link](https://www.thingiverse.com/thing:4214306)
 ### [curtain_hook](/curtain_hook)
 Window-screwable hook to hold curtains. [Thingiverse link](https://www.thingiverse.com/thing:4222626)
+### [dishwasher_salt_cap_tool](/dishwasher_salt_cap_tool)
+Salt cap removal tool for NEFF/Siemens dishwashers. [Thingiverse link](https://www.thingiverse.com/thing:4305524)
 ### [ender5_cable_bracket](/ender5_cable_bracket)
 A bracket to retain the carriage cables on an Ender 5
 ### [ender5_filament_sensor_holder](/ender5_filament_sensor_holder)
