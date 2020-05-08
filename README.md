@@ -4,6 +4,8 @@ Collection of self-designed 3D models
 ## Table of contents
 ### [alps_keychain](/alps_keychain)
 A keychain for Alps/Matias keyswitches. [Thingiverse link](https://www.thingiverse.com/thing:4214306)
+### [chromebook_for_work_feet](/chromebook_for_work_feet)
+Back feet replacement for Acer Chromebook 14 For Work. [Thingiverse link](https://www.thingiverse.com/thing:4346295)
 ### [curtain_hook](/curtain_hook)
 Window-screwable hook to hold curtains. [Thingiverse link](https://www.thingiverse.com/thing:4222626)
 ### [dishwasher_salt_cap_tool](/dishwasher_salt_cap_tool)
