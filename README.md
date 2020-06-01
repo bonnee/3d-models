@@ -10,6 +10,8 @@ Back feet replacement for Acer Chromebook 14 For Work. [Thingiverse link](https:
 Window-screwable hook to hold curtains. [Thingiverse link](https://www.thingiverse.com/thing:4222626)
 ### [dishwasher_salt_cap_tool](/dishwasher_salt_cap_tool)
 Salt cap removal tool for NEFF/Siemens dishwashers. [Thingiverse link](https://www.thingiverse.com/thing:4305524)
+### [drip_catcher](/drip_catcher)
+Catches hand sanitizer drips from automatic dispensers
 ### [ender5_cable_bracket](/ender5_cable_bracket)
 A bracket to retain the carriage cables on an Ender 5
 ### [ender5_filament_sensor_holder](/ender5_filament_sensor_holder)
