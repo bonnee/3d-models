@@ -25,6 +25,8 @@ Bracket to hold recessed spotlights in a constrained space
 ### [precision\_screwdriver](/precision_screwdriver)
 Mini precision screwdriver with 14 integrated bit holders. based on a 6.35mm x 115mm magnetic screw bit extender.
 [Thingiverse link](https://www.thingiverse.com/thing:4441645)
+### [samsung\_monitor\_riser](/samsung_monitor_riser)
+35mm risers for Samsung monitors with crappy T-shaped fixed stand
 ### [shower\_shelf\_holder](/shower_shelf_holder)
 Recreation of a bracket used to hold a shelf in a shower
 ### [toorx\_brx300\_mount](/toorx_brx300_mount)
