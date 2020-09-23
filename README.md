@@ -2,6 +2,8 @@
 Collection of self-designed 3D models
 
 ## Table of contents
+### [aim65\_keyboard](/aim65_keyboard)
+3D-printable case for Rockwell's AIM-65 microcomputer keyboard.
 ### [alps\_keychain](/alps_keychain)
 A keychain for Alps/Matias keyswitches. [Thingiverse link](https://www.thingiverse.com/thing:4214306)
 ### [bafang\_connector\_cap](/bafang_connector_cap)
