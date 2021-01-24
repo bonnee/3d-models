@@ -18,7 +18,7 @@ endef
 export HEADER
 
 define toc
-	$(shell echo "$(NEWLINE)${\n}### [$(lastword $(subst /, , $(dir $(1))))]($(abspath $(dir $(1))))" >> $(TARGET))
+	$(shell echo "$(NEWLINE)${\n}### [$(lastword $(subst /, , $(dir $(1))))]($(dir $(1)))" >> $(TARGET))
 	$(shell cat $(1) >> $(TARGET))
 endef
 
@@ -26,4 +26,4 @@ $(TARGET): header
 	$(foreach file, $(MDS), $(call toc, $(file)))
 
 header:
-	echo "$$HEADER" > $(TARGET)
+	@echo "$$HEADER" > $(TARGET)
