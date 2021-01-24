@@ -43,5 +43,9 @@ Redesign of [@mhson](https://www.thingiverse.com/thing:2535294)'s stackable box 
 [Thingiverse link](https://www.thingiverse.com/thing:4703995)
 ### [skadis_jumper](./skadis_jumper/)
 IKEA SKÅDIS jumper wire organizer
+### [tablet_tradmill](./tablet_tradmill/)
+Nexus 7 (2013) tablet holder. Designed to be glued on a treadmill with double-sided tape.
+### [tektronix_tds220_power](./tektronix_tds220_power/)
+Tektronix TDS 220 Oscilloscope Power button replacement.
 ### [toorx_brx300_mount](./toorx_brx300_mount/)
 Mounting insert for Toorx BRX300 exercise bike. [Thingiverse link](https://www.thingiverse.com/thing:4236508)
