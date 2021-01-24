@@ -33,11 +33,6 @@ Remix of a popular Ender 5 tool holder with tweezers holder. [Thingiverse link](
 Hi-Tek High Profile/Stackpole keycap to Cherry MX-style adapter.
 
 Tested with Hi-Tek keycaps on Kailh Box switches.
-### [ikea_drawer_organizers](./ikea_drawer_organizers/)
-IKEA plastic drawer unit organizers
-
-Organizers I designed to fit inside the drawers of a discontinued IKEA plastic drawer unit on casters
-
 ### [lamp_bracket](./lamp_bracket/)
 Bracket to hold recessed spotlights in a constrained space
 ### [precision_screwdriver](./precision_screwdriver/)
