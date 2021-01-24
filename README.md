@@ -1,6 +1,15 @@
 # 3D Models
 
-Collection of self-designed 3D models
+Collection of self-designed 3D models made for FDM 3D-printing.
+
+## Usage
+The included makefile takes care of building this README.md. It also generates STL models from [SolveSpace](https://solvespace.com) sources.
+
+- `make` to generate all
+- `make readme` to generate this file
+- `make stl` to only generate STLs
+- `make clean` to clean all.
+
 ## Table of contents
 ### [alps_keychain](./alps_keychain/)
 A keychain for Alps/Matias keyswitches. [Thingiverse link](https://www.thingiverse.com/thing:4214306)
@@ -24,6 +33,11 @@ Remix of a popular Ender 5 tool holder with tweezers holder. [Thingiverse link](
 Hi-Tek High Profile/Stackpole keycap to Cherry MX-style adapter.
 
 Tested with Hi-Tek keycaps on Kailh Box switches.
+### [ikea_drawer_organizers](./ikea_drawer_organizers/)
+IKEA plastic drawer unit organizers
+
+Organizers I designed to fit inside the drawers of a discontinued IKEA plastic drawer unit on casters
+
 ### [lamp_bracket](./lamp_bracket/)
 Bracket to hold recessed spotlights in a constrained space
 ### [precision_screwdriver](./precision_screwdriver/)
@@ -39,7 +53,6 @@ Recreation of a bracket used to hold a shelf in a shower
 Stackable Box V5 holder for IKEA SKÅDIS Pegboard
 
 Redesign of [@mhson](https://www.thingiverse.com/thing:2535294)'s stackable box holder to accomodate for the wider wall-thickness of [@ringel_1](https://www.thingiverse.com/thing:3726336)'s stackable box remix.
-
 [Thingiverse link](https://www.thingiverse.com/thing:4703995)
 ### [skadis_jumper](./skadis_jumper/)
 IKEA SKÅDIS jumper wire organizer
