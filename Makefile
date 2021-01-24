@@ -1,9 +1,8 @@
-MDS := $(shell find -mindepth 2 -name "*.md")
+MDS := $(sort $(shell find -mindepth 2 -name "*.md"))
+SLVS := $(shell find -mindepth 2 -name "*.slvs")
 
-TARGET=README.md
+README=README.md
 
-.PHONY: all
-all: header $(TARGET)
 
 define NEWLINE
 
@@ -18,12 +17,21 @@ endef
 export HEADER
 
 define toc
-	$(shell echo "$(NEWLINE)${\n}### [$(lastword $(subst /, , $(dir $(1))))]($(dir $(1)))" >> $(TARGET))
-	$(shell cat $(1) >> $(TARGET))
+	$(shell echo "$(NEWLINE)${\n}### [$(lastword $(subst /, , $(dir $(1))))]($(dir $(1)))" >> $(README))
+	$(shell awk 1 $(1) >> $(README))
 endef
 
-$(TARGET): header
+.PHONY: all
+all: $(README) $(SLVS:.slvs=.stl)
+
+.PHONY: readme
+readme: $(README)
+
+$(README): header
 	$(foreach file, $(MDS), $(call toc, $(file)))
 
 header:
-	@echo "$$HEADER" > $(TARGET)
+	@echo "$$HEADER" > $(README)
+
+%.stl: %.slvs
+	solvespace-cli export-mesh $^ -o $@
