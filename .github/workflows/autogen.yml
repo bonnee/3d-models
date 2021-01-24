@@ -1,0 +1,24 @@
+name: generator
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: create readme
+        run: |
+          make readme
+          git add --force README.md
+
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

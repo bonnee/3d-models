@@ -3,7 +3,6 @@ SLVS := $(shell find -mindepth 2 -name "*.slvs")
 
 README=README.md
 
-
 define NEWLINE
 
 endef
@@ -17,6 +16,7 @@ endef
 export HEADER
 
 define toc
+	@echo appending $(1)
 	$(shell echo "$(NEWLINE)${\n}### [$(lastword $(subst /, , $(dir $(1))))]($(dir $(1)))" >> $(README))
 	$(shell awk 1 $(1) >> $(README))
 endef
@@ -29,6 +29,7 @@ readme: $(README)
 
 $(README): header
 	$(foreach file, $(MDS), $(call toc, $(file)))
+	@echo done
 
 header:
 	@echo "$$HEADER" > $(README)
