@@ -13,6 +13,8 @@ The included makefile takes care of building this README.md. It also generates S
 ## Table of contents
 ### [alps_keychain](./alps_keychain/)
 A keychain for Alps/Matias keyswitches. [Thingiverse link](https://www.thingiverse.com/thing:4214306)
+### [am2302_esp01_box](./am2302_esp01_box/)
+Box to fit a ESP-01 microcontroller and a DHT22 AM2302 temperature/humidity sensor.
 ### [bafang_connector_cap](./bafang_connector_cap/)
 An end cap for bafang male connectors. [Thingiverse link](https://www.thingiverse.com/thing:4347127)
 ### [chromebook_for_work_feet](./chromebook_for_work_feet/)
@@ -28,7 +30,7 @@ A bracket to retain the carriage cables on an Ender 5
 ### [ender5_filament_sensor_holder](./ender5_filament_sensor_holder/)
 A bracket to hold [this](https://www.thingiverse.com/thing:3063430) filament runout sensor. [Thingiverse link](https://www.thingiverse.com/thing:4251291)
 ### [ender5_tool_holder](./ender5_tool_holder/)
-Remix of a popular Ender 5 tool holder with tweezers holder. [Thingiverse link](https://www.thingiverse.com/thing:4222592)
+Remix of [@TrigoKlei](https://www.thingiverse.com/thing:3655629)'s Ender 5 tool holder with the addition of a tweezers holder. [Thingiverse link](https://www.thingiverse.com/thing:4222592)
 ### [hi-tek_mx_adapter](./hi-tek_mx_adapter/)
 Hi-Tek High Profile/Stackpole keycap to Cherry MX-style adapter.
 
@@ -57,3 +59,7 @@ Nexus 7 (2013) tablet holder. Designed to be glued on a treadmill with double-si
 Tektronix TDS 220 Oscilloscope Power button replacement.
 ### [toorx_brx300_mount](./toorx_brx300_mount/)
 Mounting insert for Toorx BRX300 exercise bike. [Thingiverse link](https://www.thingiverse.com/thing:4236508)
+### [wall_mount_panel_clamping_system](./wall_mount_panel_clamping_system/)
+Adjustable wall-mount clamps for 10mm thick panels. `bottom` is the bottom bracket, while `base` and `slider` make the top bracket assembly that is adjustable with a M4x30 screw. [Thingiverse link](https://www.thingiverse.com/thing:4362476)
+### [yeelight_headphone_holder](./yeelight_headphone_holder/)
+Simple headphone holder for Yeelight Mi LED Desk Lamp. No tools or modifications to the lamp are required. [Thingiverse link](https://www.thingiverse.com/thing:4656491)
