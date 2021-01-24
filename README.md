@@ -35,5 +35,13 @@ The whole assembly is a pressure fit, so tolerances are important.
 35mm risers for Samsung monitors with crappy T-shaped fixed stand
 ### [shower_shelf_holder](./shower_shelf_holder/)
 Recreation of a bracket used to hold a shelf in a shower
+### [skadis_boxv5_holder](./skadis_boxv5_holder/)
+Stackable Box V5 holder for IKEA SKÅDIS Pegboard
+
+Redesign of [@mhson](https://www.thingiverse.com/thing:2535294)'s stackable box holder to accomodate for the wider wall-thickness of [@ringel_1](https://www.thingiverse.com/thing:3726336)'s stackable box remix.
+
+[Thingiverse link](https://www.thingiverse.com/thing:4703995)
+### [skadis_jumper](./skadis_jumper/)
+IKEA SKÅDIS jumper wire organizer
 ### [toorx_brx300_mount](./toorx_brx300_mount/)
 Mounting insert for Toorx BRX300 exercise bike. [Thingiverse link](https://www.thingiverse.com/thing:4236508)
