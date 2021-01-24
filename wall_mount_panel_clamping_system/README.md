@@ -1,0 +1,1 @@
+Adjustable wall-mount clamps for 10mm thick panels. `bottom` is the bottom bracket, while `base` and `slider` make the top bracket assembly that is adjustable with a M4x30 screw. [Thingiverse link](https://www.thingiverse.com/thing:4362476)
