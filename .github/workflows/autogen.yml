@@ -22,3 +22,6 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: Update README.md
+          coauthor_name: Matteo Bonora
+          coauthor_email: bonora.matteo@gmail.com
