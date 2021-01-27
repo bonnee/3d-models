@@ -1,1 +1,1 @@
-Back plate for Logitech Z407 speaker system.
+Replacement plate for the volume dial of Logitech's Z407 speaker set.

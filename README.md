@@ -43,7 +43,7 @@ Organizers I designed to fit inside the drawers of a discontinued IKEA plastic d
 ### [lamp_bracket](./lamp_bracket/)
 Bracket to hold recessed spotlights in a constrained space
 ### [logitech_z407_dial_back](./logitech_z407_dial_back/)
-Logitech Z407 control dial back plate.
+Replacement plate for the volume dial of Logitech's Z407 speaker set.
 ### [precision_screwdriver](./precision_screwdriver/)
 Mini precision screwdriver with integrated 14 bit holder. Based around a 6.35mm x 115mm magnetic screw bit extender.
 
