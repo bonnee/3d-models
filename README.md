@@ -35,8 +35,15 @@ Remix of [@TrigoKlei](https://www.thingiverse.com/thing:3655629)'s Ender 5 tool 
 Hi-Tek High Profile/Stackpole keycap to Cherry MX-style adapter.
 
 Tested with Hi-Tek keycaps on Kailh Box switches.
+### [ikea_drawer_organizers](./ikea_drawer_organizers/)
+IKEA plastic drawer unit organizers
+
+Organizers I designed to fit inside the drawers of a discontinued IKEA plastic drawer unit on casters
+
 ### [lamp_bracket](./lamp_bracket/)
 Bracket to hold recessed spotlights in a constrained space
+### [logitech_z407_dial_back](./logitech_z407_dial_back/)
+Logitech Z407 control dial back plate.
 ### [precision_screwdriver](./precision_screwdriver/)
 Mini precision screwdriver with integrated 14 bit holder. Based around a 6.35mm x 115mm magnetic screw bit extender.
 
