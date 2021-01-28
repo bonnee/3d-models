@@ -1,4 +1,4 @@
-name: generator
+name: 'Build Models and Readme'
 
 on:
   push:
@@ -11,29 +11,20 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+        
       - name: Build Docker Image
         run: docker build -t freecad -f Dockerfile.freecad .
-      - name: Build STLs
+        
+      - name: Export STLs
         run: docker run -iv $(pwd):/3d freecad
-      - name: Extract files
-        id: extract
-        uses: shrink/actions-docker-extract@v1
-        with:
-          image: freecad
-          path: /3d/.
-      - name: Copy STLs
-        run: |
-            cd ${{ steps.extract.outputs.destination }}
-            tree
-            find . -name '*.stl' -exec cp -v --parents {} ../ \;
-            cd ../
-            rm -rf ${{ steps.extract.outputs.destination }}
+
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'Build FreeCAD files'
+          message: 'Build FreeCAD models'
           coauthor_name: Matteo Bonora
+          coauthor_email: bonora.matteo@gmail.com
 
   readme:
     runs-on: ubuntu-latest

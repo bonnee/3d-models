@@ -49,9 +49,9 @@ solvespace: $(SLVS_STL)
 
 .PHONY: clean
 clean:
-	@rm ${patsubst %.stl, %_\(*\).stl, $(FCS_STL)}
-	@rm $(README)
-	@rm $(SLVS_STL)
+	-rm $(README)
+	-rm $(SLVS_STL)
+	-rm ${patsubst %.stl, %_\(*\).stl, $(FCS_STL)}
 
 $(README): header $(MDS)
 	$(foreach file, $(MDS), $(call toc, $(file)))
