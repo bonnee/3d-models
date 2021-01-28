@@ -1,6 +1,5 @@
 FROM amrit3701/freecad-cli:latest
 
 RUN mkdir /3d
-#COPY . /3d/
 
 ENTRYPOINT ["/usr/bin/make", "-C", "/3d", "freecad"]
