@@ -3,6 +3,9 @@ MDS := $(sort $(shell find -mindepth 2 -name "*.md"))
 SLVS := $(shell find -mindepth 2 -name "*.slvs")
 SLVS_STL := $(SLVS:.slvs=.stl)
 
+FCS := $(shell find -mindepth 2 -name "*.FCStd")
+FCS_STL := $(FCS:.FCStd=.stl)
+
 README=README.md
 
 define NEWLINE
@@ -33,17 +36,22 @@ define toc
 endef
 
 .PHONY: all
-all: readme stl
+all: readme solvespace freecad
 
 .PHONY: readme
 readme: $(README)
 
-.PHONY: stl
-stl: $(SLVS_STL)
+.PHONY: freecad
+freecad: $(FCS_STL)
+
+.PHONY: solvespace
+solvespace: $(SLVS_STL)
 
 .PHONY: clean
 clean:
-	rm $(README) $(SLVS_STL)
+	@rm ${patsubst %.stl, %_\(*\).stl, $(FCS_STL)}
+	@rm $(README)
+	@rm $(SLVS_STL)
 
 $(README): header $(MDS)
 	$(foreach file, $(MDS), $(call toc, $(file)))
@@ -52,5 +60,10 @@ $(README): header $(MDS)
 header:
 	@echo "$$HEADER" > $(README)
 
+%.FCStd: %.stl
+
+%.stl: %.FCStd
+	@FreeCADCmd -P. $^ freecad_export.py > /dev/null
+
 %.stl: %.slvs
-	solvespace-cli export-mesh --chord-tol 0.01 $^ -o $@
+	@solvespace-cli export-mesh --chord-tol 0.01 $^ -o $@

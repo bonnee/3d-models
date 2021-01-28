@@ -5,6 +5,36 @@ on:
     branches: [ master ]
 
 jobs:
+  freecad:
+    runs-on: ubuntu-latest
+    name: freecad
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Docker Image
+        run: docker build -t freecad -f Dockerfile.freecad .
+      - name: Build STLs
+        run: docker run -iv $(pwd):/3d freecad
+      - name: Extract files
+        id: extract
+        uses: shrink/actions-docker-extract@v1
+        with:
+          image: freecad
+          path: /3d/.
+      - name: Copy STLs
+        run: |
+            cd ${{ steps.extract.outputs.destination }}
+            tree
+            find . -name '*.stl' -exec cp -v --parents {} ../ \;
+            cd ../
+            rm -rf ${{ steps.extract.outputs.destination }}
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Build FreeCAD files'
+          coauthor_name: Matteo Bonora
+
   readme:
     runs-on: ubuntu-latest
     steps:
