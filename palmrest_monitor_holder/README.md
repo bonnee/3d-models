@@ -1,0 +1,1 @@
+Palmrest holder bracket designed to fit behind a Samsung U28D590 monitor
