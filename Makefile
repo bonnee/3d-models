@@ -58,6 +58,7 @@ $(README): header $(MDS)
 	$(foreach file, $(MDS), $(call toc, $(file)))
 	@echo done
 
+.PHONY: header
 header:
 	@echo "$$HEADER" > $(README)
 
