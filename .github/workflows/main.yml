@@ -1,0 +1,33 @@
+name: 'Build Models and Readme'
+
+on: push
+
+jobs:
+  build:
+    name: Build README and STL meshes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      
+      - name: Create README.md
+        run: |
+          make readme
+          git add README.md
+
+      - name: Export FreeCAD projects
+        run: docker run -iv $(pwd):/3d amrit3701/freecad-cli:latest make -C /3d freecad
+
+      - name: Build SolveSpace Docker image
+        run: docker build -t solvespace -f Dockerfile.solvespace .
+
+      - name: Export SolveSpace projects
+        run: docker run -iv $(pwd):/3d solvespace
+
+      - name: Commit & push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Build STL meshes'
+          coauthor_name: Matteo Bonora
+          coauthor_email: bonora.matteo@gmail.com

@@ -1,0 +1,17 @@
+FROM alpine:latest
+
+RUN apk update && apk add --no-cache build-base make git libpng-dev cairomm-dev freetype-dev zlib cmake
+
+RUN git clone https://github.com/solvespace/solvespace
+WORKDIR /solvespace
+RUN git submodule update --init extlib/libdxfrw extlib/mimalloc
+RUN mkdir build
+WORKDIR /solvespace/build
+RUN cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_OPENMP=ON -DENABLE_GUI=OFF
+RUN make
+RUN make install
+
+RUN mkdir /3d
+VOLUME /3d
+
+ENTRYPOINT ["/usr/bin/make", "-C", "/3d", "solvespace"]
