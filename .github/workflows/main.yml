@@ -14,9 +14,25 @@ jobs:
         run: |
           make readme
           git add README.md
+      
+      - name: Commit & push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Build README.md'
+          coauthor_name: Matteo Bonora
+          coauthor_email: bonora.matteo@gmail.com
 
       - name: Export FreeCAD projects
         run: docker run -iv $(pwd):/3d amrit3701/freecad-cli:latest make -C /3d freecad
+      
+      - name: Commit & push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Build FreeCAD projects'
+          coauthor_name: Matteo Bonora
+          coauthor_email: bonora.matteo@gmail.com
 
       - name: Build SolveSpace Docker image
         run: docker build -t solvespace -f Dockerfile.solvespace .
@@ -28,6 +44,6 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'Build STL meshes'
+          message: 'Build SolveSpace projects'
           coauthor_name: Matteo Bonora
           coauthor_email: bonora.matteo@gmail.com
