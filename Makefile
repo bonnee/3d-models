@@ -1,9 +1,9 @@
-MDS := $(sort $(shell find -mindepth 2 -name "*.md"))
+MDS := $(sort $(shell find -mindepth 2 -type f -name "*.md"))
 
-SLVS := $(shell find -mindepth 2 -name "*.slvs")
+SLVS := $(shell find -mindepth 2 -type f -name "*.slvs")
 SLVS_STL := $(SLVS:.slvs=.stl)
 
-FCS := $(shell find -mindepth 2 -name "*.FCStd")
+FCS := $(shell find -mindepth 2 -type f -name "*.FCStd")
 FCS_STL := $(FCS:.FCStd=.stl)
 
 README=README.md
