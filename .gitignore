@@ -1,2 +1,3 @@
 *.FCStd1
 __pycache__
+*.stl
