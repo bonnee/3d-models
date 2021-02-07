@@ -9,21 +9,21 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
-      
-      - name: Create README.md
-        run: |
-          make readme
+
+      - name: Make README.md
+        run: make readme
       
       - name: Commit
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions"
-
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add README.md
-          git commit -am "Build README.md
+
+          git commit -m "Build README.md
+
           
-          
-          Co-authored-by: Matteo Bnora <bonora.matteo@gmail.com>"
+          Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
+          exit 0
 
       - name: Export FreeCAD projects
         run: docker run -iv $(pwd):/3d amrit3701/freecad-cli:latest make -C /3d freecad
@@ -35,7 +35,8 @@ jobs:
           git commit -m "Build FreeCAD projects
           
           
-          Co-authored-by: Matteo Bnora <bonora.matteo@gmail.com>"
+          Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
+          exit 0
 
       - name: Build SolveSpace Docker image
         run: docker build -t solvespace -f Dockerfile.solvespace .
@@ -50,6 +51,6 @@ jobs:
           git commit -m "Build SolveSpace projects
           
           
-          Co-authored-by: Matteo Bnora <bonora.matteo@gmail.com>"
+          Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
 
           git push

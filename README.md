@@ -1,4 +1,4 @@
-# 3D Models
+# 3D Model
 
 Collection of self-designed 3D models made for FDM 3D-printing.
 
