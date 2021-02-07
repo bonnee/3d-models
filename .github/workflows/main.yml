@@ -11,9 +11,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Make README.md
+        continue-on-error: true
         run: make readme
       
       - name: Commit & Push
+        continue-on-error: true
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -27,9 +29,11 @@ jobs:
           git push
 
       - name: Export FreeCAD projects
+        continue-on-error: true
         run: docker run -iv $(pwd):/3d amrit3701/freecad-cli:latest make -C /3d freecad
       
       - name: Commit
+        continue-on-error: true
         run: |
           git add -f */*.stl
           git commit -m "Build FreeCAD projects
@@ -40,12 +44,15 @@ jobs:
           git push
 
       - name: Build SolveSpace Docker image
+        continue-on-error: true
         run: docker build -t solvespace -f Dockerfile.solvespace .
 
       - name: Export SolveSpace projects
+        continue-on-error: true
         run: docker run -iv $(pwd):/3d solvespace
 
       - name: Commit & Push
+        continue-on-error: true
         run: |
           git add -f */*.stl
           git commit -m "Build SolveSpace projects
