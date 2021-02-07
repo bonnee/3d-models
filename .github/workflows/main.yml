@@ -13,26 +13,29 @@ jobs:
       - name: Create README.md
         run: |
           make readme
-          git add README.md
       
-      - name: Commit & push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'Build README.md'
-          coauthor_name: Matteo Bonora
-          coauthor_email: bonora.matteo@gmail.com
+      - name: Commit
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions"
+
+          git add README.md
+          git commit -am "Build README.md
+          
+          
+          Co-authored-by: Matteo Bnora <bonora.matteo@gmail.com>"
 
       - name: Export FreeCAD projects
         run: docker run -iv $(pwd):/3d amrit3701/freecad-cli:latest make -C /3d freecad
       
-      - name: Commit & push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'Build FreeCAD projects'
-          coauthor_name: Matteo Bonora
-          coauthor_email: bonora.matteo@gmail.com
+      - name: Commit
+        run: |
+          git add -f */*.stl
+
+          git commit -m "Build FreeCAD projects
+          
+          
+          Co-authored-by: Matteo Bnora <bonora.matteo@gmail.com>"
 
       - name: Build SolveSpace Docker image
         run: docker build -t solvespace -f Dockerfile.solvespace .
@@ -40,10 +43,13 @@ jobs:
       - name: Export SolveSpace projects
         run: docker run -iv $(pwd):/3d solvespace
 
-      - name: Commit & push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'Build SolveSpace projects'
-          coauthor_name: Matteo Bonora
-          coauthor_email: bonora.matteo@gmail.com
+      - name: Commit & Push
+        run: |
+          git add -f */*.stl
+
+          git commit -m "Build SolveSpace projects
+          
+          
+          Co-authored-by: Matteo Bnora <bonora.matteo@gmail.com>"
+
+          git push
