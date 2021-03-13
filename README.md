@@ -91,6 +91,8 @@ Redesign of [@mhson](https://www.thingiverse.com/thing:2535294)'s stackable box 
 [Thingiverse link](https://www.thingiverse.com/thing:4703995)
 ### [skadis_jumper](./skadis_jumper/)
 IKEA SKÅDIS jumper wire organizer
+### [super_struts_compression_tab](./super_struts_compression_tab/)
+Adds the compressive design of [this model](https://www.thingiverse.com/thing:4128533) to the original [super struts](https://www.thingiverse.com/thing:3479330) without reprinting the whole thing.
 ### [tablet_tradmill](./tablet_tradmill/)
 Nexus 7 (2013) tablet holder. Designed to be glued on a treadmill with double-sided tape.
 ### [tektronix_tds220_power](./tektronix_tds220_power/)
