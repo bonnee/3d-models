@@ -1,4 +1,4 @@
-# Lithophane tealight holder
+Lithophane tealight holder
 
 Design inspired by [this](https://www.thingiverse.com/thing:4682260).
 I used [itslitho](https://tool.itslitho.com/CreateModel) to generate lithophanes with the following settings:
