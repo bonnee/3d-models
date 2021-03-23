@@ -12,6 +12,8 @@ The included makefile takes care of building this file. It can also generate STL
 - `make clean` to clean all.
 
 ## Table of contents
+### [MRX-108_knobs](./MRX-108_knobs/)
+Knobs designed to fit [MRX-108](https://www.mouser.it/datasheet/2/295/MRpowerLevel-22799.pdf) rotary switches.
 ### [alps_keychain](./alps_keychain/)
 A keychain for Alps/Matias keyswitches. [Thingiverse link](https://www.thingiverse.com/thing:4214306)
 ### [am2302_esp01_box](./am2302_esp01_box/)
