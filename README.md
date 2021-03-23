@@ -51,7 +51,7 @@ I printed them with vase mode.
 ### [lamp_bracket](./lamp_bracket/)
 Bracket to hold recessed spotlights in a constrained space
 ### [lithophane_candle](./lithophane_candle/)
-# Lithophane tealight holder
+Lithophane tealight holder
 
 Design inspired by [this](https://www.thingiverse.com/thing:4682260).
 I used [itslitho](https://tool.itslitho.com/CreateModel) to generate lithophanes with the following settings:
@@ -78,6 +78,8 @@ The whole assembly is a pressure fit, so tolerances are important.
 [Thingiverse link](https://www.thingiverse.com/thing:4441645)
 ### [samsung_monitor_riser](./samsung_monitor_riser/)
 35mm risers for Samsung monitors with crappy T-shaped fixed stand
+### [shelly](./shelly/)
+3D models of various [Shelly](https://shelly.cloud/) products. Useful to make enclosures/addons.
 ### [shower_shelf_holder](./shower_shelf_holder/)
 Recreation of a bracket used to hold a shelf in a shower
 ### [skadis_box_shelf](./skadis_box_shelf/)
