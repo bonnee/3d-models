@@ -4,6 +4,7 @@ RUN apk update && apk add --no-cache build-base make git libpng-dev cairomm-dev 
 
 RUN git clone https://github.com/solvespace/solvespace
 WORKDIR /solvespace
+RUN git checkout $(git describe --abbrev=0)
 RUN git submodule update --init extlib/libdxfrw extlib/mimalloc
 RUN mkdir build
 WORKDIR /solvespace/build
