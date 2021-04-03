@@ -99,8 +99,12 @@ Redesign of [@mhson](https://www.thingiverse.com/thing:2535294)'s stackable box 
 IKEA SKÅDIS jumper wire organizer
 ### [super_struts_compression_tab](./super_struts_compression_tab/)
 Adds the compressive design of [this model](https://www.thingiverse.com/thing:4128533) to the original [super struts](https://www.thingiverse.com/thing:3479330) without reprinting the whole thing.
+### [table_hook](./table_hook/)
+Hook that clamps on the legs of a [Frezza Pop Easy](https://www.frezza.com/en/products/pop-easy-desk/) desk.
+
 ### [table_join_clamp](./table_join_clamp/)
 Clamp to join two [Frezza Pop Easy](https://www.frezza.com/en/products/pop-easy-desk/) desks.
+
 ### [tablet_tradmill](./tablet_tradmill/)
 Nexus 7 (2013) tablet holder. Designed to be glued on a treadmill with double-sided tape.
 ### [tektronix_tds220_power](./tektronix_tds220_power/)
