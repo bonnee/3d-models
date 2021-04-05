@@ -1,6 +1,6 @@
 name: 'Build Models and Readme'
 
-on: push
+#on: push
 
 jobs:
   build:

@@ -20,3 +20,4 @@ for obj in doc.RootObjects:
     print(f"exporting {filename}", end="...", file=sys.stderr)
     Mesh.export([obj], filename)
     print("done", file=sys.stderr)
+

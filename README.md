@@ -78,6 +78,11 @@ Mini precision screwdriver with integrated 14 bit holder. Based around a 6.35mm 
 
 The whole assembly is a pressure fit, so tolerances are important.
 [Thingiverse link](https://www.thingiverse.com/thing:4441645)
+### [precision_screwdriver_v2](./precision_screwdriver_v2/)
+Mini precision screwdriver with integrated 16 bit holder. Based around a 6.35mm x 115mm magnetic screw bit extender. and 5mm x 2mm disc magnets. Model is parametric and can easily be adapted to different shaft lengths and magnet sizes.  
+
+Inspired by [my previous attempt](/precision_screwdriver) and work from [Fjederhaek](https://www.thingiverse.com/thing:4399253).
+
 ### [samsung_monitor_riser](./samsung_monitor_riser/)
 35mm risers for Samsung monitors with crappy T-shaped fixed stand
 ### [shelly](./shelly/)
