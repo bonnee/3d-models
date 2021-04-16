@@ -14,6 +14,9 @@ The included makefile takes care of building this file. It can also generate STL
 ## Table of contents
 ### [MRX-108_knobs](./MRX-108_knobs/)
 Knobs designed to fit [MRX-108](https://www.mouser.it/datasheet/2/295/MRpowerLevel-22799.pdf) rotary switches.
+### [W3230_thermostat](./W3230_thermostat/)
+Model of a cheap [W3230](http://sahel.rs/media/sah/techdocs/w3230-manual.pdf) temperature controller
+
 ### [alps_keychain](./alps_keychain/)
 A keychain for Alps/Matias keyswitches. [Thingiverse link](https://www.thingiverse.com/thing:4214306)
 ### [am2302_esp01_box](./am2302_esp01_box/)
@@ -79,12 +82,16 @@ Mini precision screwdriver with integrated 14 bit holder. Based around a 6.35mm 
 The whole assembly is a pressure fit, so tolerances are important.
 [Thingiverse link](https://www.thingiverse.com/thing:4441645)
 ### [precision_screwdriver_v2](./precision_screwdriver_v2/)
-Mini precision screwdriver with integrated 16 bit holder. Based around a 6.35mm x 115mm magnetic screw bit extender. and 5mm x 2mm disc magnets. Model is parametric and can easily be adapted to different shaft lengths and magnet sizes.  
+Mini precision screwdriver with integrated 16 bit holder. Based around a 6.35mm x 115mm magnetic screw bit extender and 5mm x 2mm disc magnets. Model is parametric and can easily be adapted to different shaft lengths and magnet sizes.  
 
 Inspired by [my previous attempt](/precision_screwdriver) and work from [Fjederhaek](https://www.thingiverse.com/thing:4399253).
 
 ### [samsung_monitor_riser](./samsung_monitor_riser/)
 35mm risers for Samsung monitors with crappy T-shaped fixed stand
+### [scr_4000w](./scr_4000w/)
+Model of a [cheap noname](https://www.amazon.it/gp/product/B07P7N5JHK/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) 4000W SCR AC Voltage Regulator.
+
+[Terminal block] (https://grabcad.com/library/terminal-block-9-52mm-pitch-4-s-four-4-1) by Michael Gräf.
 ### [shelly](./shelly/)
 3D models of various [Shelly](https://shelly.cloud/) products. Useful to make enclosures/addons.
 ### [shelly_box](./shelly_box/)
