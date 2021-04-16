@@ -1,6 +1,6 @@
 name: 'Build Models and Readme'
 
-#on: push
+on: push
 
 jobs:
   build:
@@ -28,20 +28,20 @@ jobs:
 
           git push
 
-      - name: Export FreeCAD projects
-        continue-on-error: true
-        run: docker run -iv $(pwd):/3d amrit3701/freecad-cli:latest make -C /3d freecad
-      
-      - name: Commit
-        continue-on-error: true
-        run: |
-          git add -f */*.stl
-          git commit -m "Build FreeCAD projects
-          
-          
-          Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
+      #- name: Export FreeCAD projects
+      #  continue-on-error: true
+      #  run: docker run -iv $(pwd):/3d amrit3701/freecad-cli:latest make -C /3d freecad
+      #
+      #- name: Commit
+      #  continue-on-error: true
+      #  run: |
+      #    git add -f */*.stl
+      #    git commit -m "Build FreeCAD projects
+      #    
+      #    
+      #    Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
 
-          git push
+      #    git push
 
       - name: Build SolveSpace Docker image
         continue-on-error: true
