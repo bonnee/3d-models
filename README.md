@@ -82,10 +82,17 @@ Mini precision screwdriver with integrated 14 bit holder. Based around a 6.35mm 
 The whole assembly is a pressure fit, so tolerances are important.
 [Thingiverse link](https://www.thingiverse.com/thing:4441645)
 ### [precision_screwdriver_v2](./precision_screwdriver_v2/)
-Mini precision screwdriver with integrated 16 bit holder. Based around a 6.35mm x 115mm magnetic screw bit extender and 5mm x 2mm disc magnets. Model is parametric and can easily be adapted to different shaft lengths and magnet sizes.  
+Mini precision screwdriver handle with integrated 16 bit holder. Based around a 4mm x 115mm magnetic screw bit extender and 5mm x 2mm disc magnets.
 
 Inspired by [my previous attempt](/precision_screwdriver) and work from [Fjederhaek](https://www.thingiverse.com/thing:4399253).
 
+#### Parts
+- 8x 5x2mm round magnets
+- 1x magnetic screw bit extender 115~150mm total length (shorter is better)
+
+#### Assembly
+Magnets should stay in place without glue.
+Use a rubber mallet to insert the bit extender in the handle
 ### [samsung_monitor_riser](./samsung_monitor_riser/)
 35mm risers for Samsung monitors with crappy T-shaped fixed stand
 ### [scr_4000w](./scr_4000w/)
