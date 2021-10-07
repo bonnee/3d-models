@@ -15,7 +15,7 @@ base_filename = os.path.splitext(doc.FileName)[0]
 for obj in doc.RootObjects:
     partname = obj.Label
     
-    filename = base_filename + "_(" + partname + ").stl"
+    filename = base_filename + "-" + partname + ".stl"
     
     print(f"exporting {filename}", end="...", file=sys.stderr)
     Mesh.export([obj], filename)

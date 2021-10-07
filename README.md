@@ -12,6 +12,26 @@ The included makefile takes care of building this file. It can also generate STL
 - `make clean` to clean all.
 
 ## Table of contents
+### [3018_emergency_stop](./CNC_3018_pro/3018_emergency_stop/)
+# 3018 Pro emergency button
+Emergency stop button that resets the mainboard when pressed. Based around an old computer power button (model Solteam PS3-22SP) with a satisfying click.
+![Emergency button placement](button.png)
+
+Font is comic sans because why not.
+### [3018_power_supply_holder](./CNC_3018_pro/3018_power_supply_holder/)
+# 3018 Pro power supply holder
+Simple bracket to hold the multi-voltage power supply that came with the machine.
+### [3018_pro_electronics_case](./CNC_3018_pro/3018_pro_electronics_case/)
+# 3018 Pro electronics case
+Electronics enclosure for the GRBL board. No additional screws or hardware needed. Fully encloses the electronics to protect from debris. Also supports a 40mm fan for cooling the stepper drivers.
+
+### [3018_x_stop_creality](./CNC_3018_pro/3018_x_stop_creality/)
+# CNC 3018 Pro X end stop
+End stop support using an unused Z end stop microswitch from a Creality Ender 5.
+
+### [CNC_3018_pro](./CNC_3018_pro/)
+# CNC 3018 Pro
+Additions and modifications to my CNC 3018 Pro kit.
 ### [MRX-108_knobs](./MRX-108_knobs/)
 Knobs designed to fit [MRX-108](https://www.mouser.it/datasheet/2/295/MRpowerLevel-22799.pdf) rotary switches.
 ### [W3230_thermostat](./W3230_thermostat/)
