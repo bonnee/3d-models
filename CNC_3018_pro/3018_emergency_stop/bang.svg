@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="3.4416504mm"
+   height="12.549622mm"
+   viewBox="0 0 3.4416504 12.549622"
+   version="1.1"
+   id="svg93456"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="bang.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview93458"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="5.3917556"
+     inkscape:cx="-23.739949"
+     inkscape:cy="-0.18546835"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs93453" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-45.716672,-107.85019)">
+    <g
+       aria-label="!"
+       transform="matrix(0.26458333,0,0,0.26458333,52.12455,128.19094)"
+       id="flowRoot65496"
+       style="font-size:60px;line-height:125%;font-family:Mickey;-inkscape-font-specification:Mickey;letter-spacing:0px;word-spacing:0px;stroke-width:1px">
+      <path
+         d="m -11.210938,-76.878424 -1.933593,35.71289 h -9.140625 l -1.933594,-35.71289 z m -0.966796,37.939453 v 9.492187 h -11.074219 v -9.492187 z"
+         style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact Condensed'"
+         id="path93529" />
+    </g>
+  </g>
+</svg>
