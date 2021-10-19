@@ -1,3 +1,4 @@
 *.FCStd1
+*.FCBak
 __pycache__
 #*.stl

@@ -28,6 +28,10 @@ jobs:
 
           git push
 
+      - name: Upload to Thingiverse
+        run: |
+
+
       #- name: Export FreeCAD projects
       #  continue-on-error: true
       #  run: docker run -iv $(pwd):/3d amrit3701/freecad-cli:latest make -C /3d freecad
@@ -43,21 +47,21 @@ jobs:
 
       #    git push
 
-      - name: Build SolveSpace Docker image
-        continue-on-error: true
-        run: docker build -t solvespace -f Dockerfile.solvespace .
+      #- name: Build SolveSpace Docker image
+      #  continue-on-error: true
+      #  run: docker build -t solvespace -f .utils/Dockerfile.solvespace .
 
-      - name: Export SolveSpace projects
-        continue-on-error: true
-        run: docker run -iv $(pwd):/3d solvespace
+      #- name: Export SolveSpace projects
+      #  continue-on-error: true
+      #  run: docker run -iv $(pwd):/3d solvespace
 
-      - name: Commit & Push
-        continue-on-error: true
-        run: |
-          git add -f */*.stl
-          git commit -m "Build SolveSpace projects
-          
-          
-          Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
+      #- name: Commit & Push
+      #  continue-on-error: true
+      #  run: |
+      #    git add -f */*.stl
+      #    git commit -m "Build SolveSpace projects
+      #    
+      #    
+      #    Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
 
-          git push
+      #    git push

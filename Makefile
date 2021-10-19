@@ -1,12 +1,21 @@
+#FREECADOUT := $(shell mktemp)
+FREECADOUT="/tmp/freecadout"
+
 MDS := $(sort $(shell find -mindepth 2 -type f -name "*.md"))
 
 SLVS := $(shell find -mindepth 2 -type f -name "*.slvs")
 SLVS_STL := $(SLVS:.slvs=.stl)
 
 FCS := $(shell find -mindepth 2 -type f -name "*.FCStd")
-FCS_STL := $(FCS:.FCStd=.stl)
+FCS_STL_ESCAPED = $(foreach file, $(FCS), $(shell FreeCADCmd -P. "$(file)" ./.utils/freecad_names.py $(FREECADOUT) > /dev/null; cat $(FREECADOUT)))
+# Escaped STL list for shell commands
+FCS_STL = $(foreach file, $(FCS_STL_ESCAPED), $(shell ./.utils/unescape_name.py $(file)))
 
-README=README.md
+UPLOAD_DEF = $(shell find -mindepth 2 -type f -name ".upload.json")
+UPLOAD_REF = $(foreach file, $(UPLOAD_DEF), $(shell ./.utils/upload/thingiverse/thingiverse-timestamp.py "$(file)"))
+
+README = README.md
+#README := $(addsuffix README.md,$(dir $(FCS))) $(addsuffix README.md,$(dir $(SLVS)))
 
 define NEWLINE
 
@@ -30,11 +39,11 @@ The included makefile takes care of building this file. It can also generate STL
 endef
 export HEADER
 
-define toc
-	@echo appending $(1)
-	$(shell echo "$(NEWLINE)${\n}### [$(lastword $(subst /, , $(dir $(1))))]($(dir $(1)))" >> $(README))
-	$(shell awk 1 $(1) >> $(README))
-endef
+#define toc
+#	@echo appending $(1)
+#	$(shell echo "$(NEWLINE)${\n}### [$(lastword $(subst /, , $(dir $(1))))]($(dir $(1)))" >> $(README))
+#	$(shell awk 1 $(1) >> $(README))
+#endef
 
 .PHONY: all
 all: readme solvespace freecad
@@ -48,11 +57,17 @@ freecad: $(FCS_STL)
 .PHONY: solvespace
 solvespace: $(SLVS_STL)
 
+.PHONY: upload
+upload: freecad solvespace $(UPLOAD_REF)
+
+%.thingiverse:
+	./.utils/upload/thingiverse/thingiverse-upload.py $^
+
 .PHONY: clean
 clean:
 	-rm $(README)
 	-rm $(SLVS_STL)
-	-rm ${patsubst %.stl, %_\(*\).stl, $(FCS_STL)}
+	-rm $(FCS_STL_ESCAPED)
 
 $(README): header $(MDS)
 	$(foreach file, $(MDS), $(call toc, $(file)))
@@ -62,10 +77,9 @@ $(README): header $(MDS)
 header:
 	@echo "$$HEADER" > $(README)
 
-%.FCStd: %.stl
-
-%.stl: %.FCStd
-	@FreeCADCmd -P. $^ freecad_export.py > /dev/null
+.SECONDEXPANSION:
+%.stl: $$(@D)/*.FCStd
+	FreeCADCmd -P. "$^" ./.utils/freecad_export.py "$@"
 
 %.stl: %.slvs
-	@solvespace-cli export-mesh --chord-tol 0.01 $^ -o $@
+	solvespace-cli export-mesh --chord-tol 0.05 "$^" -o "$@"
