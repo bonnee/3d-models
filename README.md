@@ -12,3 +12,11 @@ The included makefile takes care of building this file. It can also generate STL
 - `make clean` to clean all.
 
 ## Table of contents
+
+> **NOTE:** List of projects sorted by name.
+
+| Name | Thumbnail | Software/Files | Thingiverse link | Notes |
+| :--- | :---: | :---: | :---: | :--- |
+| Joystick | ![TBA]() | FreeCAD (`.FCStd`, `.stl`) | TBA | **WIP** |
+| Precision Screwdriver | ![TBA]() | SolveSpace (`.slvs`, `.stl`) | [thing:4441645](https://www.thingiverse.com/thing:4441645) | |
+| Precision Screwdriver v2 | ![TBA]() | FreeCAD (`.FCStd`, `.stl`) | TBA | |
