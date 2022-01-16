@@ -1,18 +1,20 @@
 #FREECADOUT := $(shell mktemp)
-FREECADOUT="/tmp/freecadout"
+FREECADOUT := "/tmp/freecadout"
 
-MDS := $(sort $(shell find -mindepth 2 -type f -name "*.md"))
+MDS = $(sort $(shell find -mindepth 2 -type f -name "*.md"))
 
-SLVS := $(shell find -mindepth 2 -type f -name "*.slvs")
-SLVS_STL := $(SLVS:.slvs=.stl)
+SLVS = $(shell find -mindepth 2 -type f -name "*.slvs")
+SLVS_STL = $(SLVS:.slvs=.stl)
 
-FCS := $(shell find -mindepth 2 -type f -name "*.FCStd")
-FCS_STL_ESCAPED = $(foreach file, $(FCS), $(shell FreeCADCmd -P. "$(file)" ./.utils/freecad_names.py $(FREECADOUT) > /dev/null; cat $(FREECADOUT)))
+FCS = $(shell find -mindepth 2 -type f -name "*.FCStd")
+
 # Escaped STL list for shell commands
-FCS_STL = $(foreach file, $(FCS_STL_ESCAPED), $(shell ./.utils/unescape_name.py $(file)))
+#FCS_STL_ESCAPED = $(eval FCS_STL_ESCAPED := $(foreach file, $(FCS), $(shell FreeCADCmd -P. "$(file)" ./.utils/freecad_names.py $(FREECADOUT) > /dev/null; cat $(FREECADOUT))))$(value FCS_STL_ESCAPED)
+FCS_STL_ESCAPED = $(foreach file, $(FCS), $(shell FreeCADCmd -P. "$(file)" ./.utils/freecad_names.py $(FREECADOUT) > /dev/null; cat $(FREECADOUT)))
 
-UPLOAD_DEF = $(shell find -mindepth 2 -type f -name ".upload.json")
-UPLOAD_REF = $(foreach file, $(UPLOAD_DEF), $(shell ./.utils/upload/thingiverse/thingiverse-timestamp.py "$(file)"))
+
+# Unsecaped STL list for Makefile commands
+FCS_STL = $(foreach file, $(FCS_STL_ESCAPED), $(shell ./.utils/unescape_name.py $(file)))
 
 README = README.md
 #README := $(addsuffix README.md,$(dir $(FCS))) $(addsuffix README.md,$(dir $(SLVS)))
@@ -46,22 +48,22 @@ export HEADER
 #endef
 
 .PHONY: all
-all: readme solvespace freecad
+all: readme solvespace freecad upload
+
+.PHONY: upload
+upload:
+	find -mindepth 2 -type f -name "upload.json" -exec ./.utils/upload/thingiverse/thingiverse-upload.py {} \;
 
 .PHONY: readme
 readme: $(README)
 
 .PHONY: freecad
-freecad: $(FCS_STL)
+#freecad: $(FCS_STL)
+freecad:
+	make $(FCS_STL_ESCAPED)
 
 .PHONY: solvespace
 solvespace: $(SLVS_STL)
-
-.PHONY: upload
-upload: freecad solvespace $(UPLOAD_REF)
-
-%.thingiverse:
-	./.utils/upload/thingiverse/thingiverse-upload.py $^
 
 .PHONY: clean
 clean:
@@ -83,3 +85,4 @@ header:
 
 %.stl: %.slvs
 	solvespace-cli export-mesh --chord-tol 0.05 "$^" -o "$@"
+

@@ -70,10 +70,14 @@ def upload_file(tverse, thing_id, filename):
     
         # Get list of already uploaded files
         online_files=tverse.get_thing_file(thing_id, None)
+
     
         # Delete online file if it already exists.
         for ofile in online_files:
             if ofile['name'] == basename:
+                if ofile['size'] == os.path.getsize(filename):
+                    print(f"A file with the same size already exists. [file={basename}]")
+                    return
                 tverse.delete_thing_file(thing_id, ofile['id'])
                 print(f"Deleted already existing file. [file={basename}]")
     
