@@ -21,79 +21,82 @@ from requests import Request, Session
 from urllib.parse import unquote, urlparse
 from pathlib import Path,PurePosixPath
 
-from common import KEY,SECRET,TOKEN,UPLOAD_FILE, check_error
+from common import KEY,SECRET,TOKEN,check_error
 
-if len(sys.argv)==1:
-    print("Expected file")
-    exit(1)
-
-target=Path(sys.argv[1])
-if not (os.path.exists(target) and os.path.isfile(target)):
-    print(f"File not found. [file={target}]")
-    exit(1)
-
-file=os.path.basename(target)
-ufile=Path(os.path.dirname(target))/UPLOAD_FILE
-
-# Check whether the upload definition file exists in the given path
-if not (os.path.exists(ufile) and  os.path.isfile(ufile)):
-    print(f"Upload definition file not found. [file={ufile}]")
-    exit(0)
-
-# Open upload definition file
-with open(ufile) as f:
-    upload=dict(json.load(f).items())
-
-# If thingiverse not defined in file
-if "thingiverse" not in upload.keys():
-    print(f"No thingiverse entry in path. [path={UPLOAD_FILE}]")
-    exit(0)
-
-upload=upload["thingiverse"]
-thing_id=upload["thing_id"]
-
-if not file in upload['files']:
-    print(f"Nothing to do. [file={target}]")
-    exit(0)
-else:
+def __init__():
+    if len(sys.argv)==1:
+        print("Expected file")
+        exit(1)
     
+    ufile=Path(sys.argv[1])
+
+    # Check whether the upload definition file exists in the given path
+    if not (os.path.exists(ufile) and  os.path.isfile(ufile)):
+        print(f"Upload definition file not found. [file={ufile}]")
+        exit(2)
+
+    base_path=Path(os.path.dirname(ufile))
+    
+    # Open upload definition file
+    with open(ufile) as f:
+        upload=dict(json.load(f).items())
+    
+    # If thingiverse not defined in file
+    if "thingiverse" not in upload.keys():
+        print(f"No thingiverse entry in path. [path={ufile}]")
+        exit(3)
+    
+    upload=upload['thingiverse']
+    thing_id=upload['thing_id']
+
     # Connect to thingiverse
+    print("Connecting to thingiverse")
     t = thingiverse.Thingiverse({'client_id': KEY, 'client_secret': SECRET, 'redirect_uri': ''})
     t.connect(TOKEN)
 
-    # Get thing and check existence
-    thing=t.get_thing(thing_id)
-    check_error(thing)
+    for f in upload['files']:
+        file=base_path/Path(f)
+        if not (os.path.exists(file) and  os.path.isfile(file)):
+            print(f"Upload definition file not found. [file={file}]")
+            exit(2)
+        upload_file(t, thing_id, file)
 
-    # Get list of already uploaded files
-    online_files=t.get_thing_file(thing_id, None)
+def upload_file(tverse, thing_id, filename):
+        basename=os.path.basename(filename)
 
-    # Check file existence
-    for f in online_files:
+        # Get thing and check existence
+        thing=tverse.get_thing(thing_id)
+        check_error(thing)
+    
+        # Get list of already uploaded files
+        online_files=tverse.get_thing_file(thing_id, None)
+    
         # Delete online file if it already exists.
-        print(f['date'])
-        if file in f["name"]:
-            t.delete_thing_file(thing_id, f["id"])
-            print(f"Deleted already existing file. [file={file}]")
+        for ofile in online_files:
+            if ofile['name'] == basename:
+                tverse.delete_thing_file(thing_id, ofile['id'])
+                print(f"Deleted already existing file. [file={basename}]")
+    
+        # Get upload info from Thingiverse
+        data = json.dumps({"filename": basename})
+        upload_info=tverse.upload_thing_file(thing_id, data)
+        print(f"Got upload data from Thingiverse. [file={basename}]")
+    
+        # Create message for S3
+        fields={**upload_info['fields'], **{'file': (basename, open(filename, 'rb'), upload_info['fields']['Content-Type'])}}
+        m = MultipartEncoder(fields)
+    
+        # Upload file for AWS S3 storage
+        url=upload_info["action"]
+        res=requests.post(url, data = m, headers = {'Content-Type': m.content_type}, allow_redirects=False)
+        print(f"New file uploaded. [file={basename}, return={res.status_code}]")
+    
+        # Get file id to notify Thingiverse of new file
+        file_id=int(PurePosixPath(unquote(urlparse(upload_info["fields"]["success_action_redirect"]).path)).parts[2])
+        type(file_id)
+    
+        res=tverse.finalize_file(file_id)
+        check_error(res)
+        print(f"Thingiverse notified of new file. [file={basename}]")
 
-    # Get upload info from Thingiverse
-    data = json.dumps({"filename": file})
-    upload_info=t.upload_thing_file(thing_id, data)
-    print(f"Got upload data from Thingiverse. [file={file}]")
-
-    # Create message for S3
-    fields={**upload_info['fields'], **{'file': (file, open(target, 'rb'), upload_info['fields']['Content-Type'])}}
-    m = MultipartEncoder(fields)
-
-    # Upload file for AWS S3 storage
-    url=upload_info["action"]
-    res=requests.post(url, data = m, headers = {'Content-Type': m.content_type}, allow_redirects=False)
-    print(f"New version of file uploaded. [file={file}, return={res.status_code}]")
-
-    # Get file id to notify Thingiverse of new file
-    file_id=int(PurePosixPath(unquote(urlparse(upload_info["fields"]["success_action_redirect"]).path)).parts[2])
-    type(file_id)
-
-    res=t.finalize_file(file_id)
-    check_error(res)
-    print(f"Thingiverse notified of new file. [file={file}]")
+__init__()
