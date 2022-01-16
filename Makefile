@@ -48,14 +48,14 @@ export HEADER
 #endef
 
 .PHONY: all
-all: readme solvespace freecad upload
+all: solvespace freecad upload
 
 .PHONY: upload
 upload:
-	find -mindepth 2 -type f -name "upload.json" -exec ./.utils/upload/thingiverse/thingiverse-upload.py {} \;
+	@find -mindepth 2 -type f -name "upload.json" -exec ./.utils/upload/thingiverse/thingiverse-upload.py {} \;
 
-.PHONY: readme
-readme: $(README)
+#.PHONY: readme
+#readme: $(README)
 
 .PHONY: freecad
 #freecad: $(FCS_STL)

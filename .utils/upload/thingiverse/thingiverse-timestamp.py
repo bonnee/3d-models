@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# Creates .thingiverse files containing upload timestamp for every file listed in upload.json
 
 import os
 import sys
@@ -9,18 +10,19 @@ import json
 from datetime import timezone,datetime
 from pathlib import Path,PurePosixPath
 
-from common import KEY,SECRET,TOKEN,UPLOAD_FILE,check_error
+from common import KEY,SECRET,TOKEN,check_error
 
 if len(sys.argv)==1:
     print("Expected file")
     exit(1)
 
 ufile=Path(sys.argv[1])
-base_path=os.path.dirname(ufile)
-# Check whether the upload definition file exists in the given path
+# Check whether the given upload definition file exists
 if not (os.path.exists(ufile) and  os.path.isfile(ufile)):
     print(f"Upload definition file not found. [file={ufile}]")
-    exit(0)
+    exit(1)
+
+base_path=os.path.dirname(ufile)
 
 # Open upload definition file
 with open(ufile) as f:
@@ -28,7 +30,7 @@ with open(ufile) as f:
 
 # If thingiverse not defined in file
 if "thingiverse" not in upload.keys():
-    print(f"No thingiverse entry in path. [path={UPLOAD_FILE}]")
+    print(f"No thingiverse entry in path. [path={ufile}]")
     exit(0)
 
 upload=upload["thingiverse"]
@@ -49,6 +51,7 @@ online_files=t.get_thing_file(thing_id, None)
 for file in files:
     for ofile in online_files:
         if ofile['name'] == file:
+            print(ofile.keys())
             # If file matches, return upload timestamp
             dt=datetime.strptime(ofile['date'], "%Y-%m-%d %H:%M:%S")
             dt=dt.replace(tzinfo=timezone.utc).timestamp()
@@ -59,3 +62,4 @@ for file in files:
             f.close()
             os.utime(fname,(dt,dt))
             print(fname)
+

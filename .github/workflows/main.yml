@@ -10,9 +10,9 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
 
-      - name: Make README.md
-        continue-on-error: true
-        run: make readme
+      #- name: Make README.md
+      #  continue-on-error: true
+      #  run: make readme
       
       - name: Commit & Push
         continue-on-error: true
@@ -30,6 +30,7 @@ jobs:
 
       - name: Upload to Thingiverse
         run: |
+          make upload
 
 
       #- name: Export FreeCAD projects
