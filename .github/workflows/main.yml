@@ -14,19 +14,19 @@ jobs:
       #  continue-on-error: true
       #  run: make readme
       
-      - name: Commit & Push
-        continue-on-error: true
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add README.md
+      #- name: Commit & Push
+      #  continue-on-error: true
+      #  run: |
+      #    git config user.name github-actions
+      #    git config user.email github-actions@github.com
+      #    git add README.md
 
-          git commit -m "Build README.md
+      #    git commit -m "Build README.md
 
-          
-          Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
+      #    
+      #    Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
 
-          git push
+      #    git push
 
       - name: Upload to Thingiverse
         run: |
