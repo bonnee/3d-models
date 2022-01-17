@@ -21,7 +21,7 @@ from requests import Request, Session
 from urllib.parse import unquote, urlparse
 from pathlib import Path,PurePosixPath
 
-from common import KEY,SECRET,TOKEN,check_error
+from common import check_error
 
 def __init__():
     if len(sys.argv)==1:
@@ -29,6 +29,20 @@ def __init__():
         exit(1)
     
     ufile=Path(sys.argv[1])
+
+    if 'THINGIVERSE_KEY' not in os.environ:
+        print(f"THINGIVERSE_KEY environment variable not set.")
+        exit(1)
+    if 'THINGIVERSE_SECRET' not in os.environ:
+        print(f"THINGIVERSE_SECRET environment variable not set.")
+        exit(1)
+    if 'THINGIVERSE_TOKEN' not in os.environ:
+        print(f"THINGIVERSE_TOKEN environment variable not set.")
+        exit(1)
+
+    KEY=os.environ['THINGIVERSE_KEY']
+    SECRET=os.environ['THINGIVERSE_SECRET']
+    TOKEN=os.environ['THINGIVERSE_TOKEN']
 
     # Check whether the upload definition file exists in the given path
     if not (os.path.exists(ufile) and  os.path.isfile(ufile)):

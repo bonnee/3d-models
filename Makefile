@@ -50,6 +50,10 @@ export HEADER
 .PHONY: all
 all: solvespace freecad upload
 
+.PHONY: install-deps
+install-deps:
+	pip install .utils/upload/thingiverse/thingiverse
+
 .PHONY: upload
 upload:
 	@find -mindepth 2 -type f -name "upload.json" -exec ./.utils/upload/thingiverse/thingiverse-upload.py {} \;

@@ -4,11 +4,13 @@ on: push
 
 jobs:
   build:
-    name: Build README and STL meshes
+    name: Build STL meshes and upload to Thingiverse
     runs-on: ubuntu-latest
     steps:
       - name: Check out
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       #- name: Make README.md
       #  continue-on-error: true
@@ -27,11 +29,6 @@ jobs:
       #    Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
 
       #    git push
-
-      - name: Upload to Thingiverse
-        run: |
-          make upload
-
 
       #- name: Export FreeCAD projects
       #  continue-on-error: true
@@ -66,3 +63,13 @@ jobs:
       #    Co-authored-by: Matteo Bonora <bonora.matteo@gmail.com>"
 
       #    git push
+      
+      - name: Upload to Thingiverse
+        env:
+          THINGIVERSE_KEY: ${{ secrets.THINGIVERSE_KEY }}
+          THINGIVERSE_SECRET: ${{ secrets.THINGIVERSE_SECRET }}
+          THINGIVERSE_TOKEN: ${{ secrets.THINGIVERSE_TOKEN }}
+        run: |
+          pip install requests requests_toolbelt
+          make install-deps
+          make upload

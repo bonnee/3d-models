@@ -1,0 +1,3 @@
+[submodule ".utils/upload/thingiverse/thingiverse"]
+	path = .utils/upload/thingiverse/thingiverse
+	url = git@github.com:Bonnee/thingiverse.git
