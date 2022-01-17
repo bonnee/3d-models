@@ -48,7 +48,7 @@ export HEADER
 #endef
 
 .PHONY: all
-all: solvespace freecad upload
+all: solvespace freecad
 
 .PHONY: install-deps
 install-deps:

@@ -25,7 +25,7 @@ from common import check_error
 
 def __init__():
     if len(sys.argv)==1:
-        print("Expected file")
+        print("No file arguments provided.")
         exit(1)
     
     ufile=Path(sys.argv[1])
@@ -64,7 +64,7 @@ def __init__():
     thing_id=upload['thing_id']
 
     # Connect to thingiverse
-    print("Connecting to thingiverse")
+    print(f"Connecting to thingiverse. [file={ufile}]")
     t = thingiverse.Thingiverse({'client_id': KEY, 'client_secret': SECRET, 'redirect_uri': ''})
     t.connect(TOKEN)
 
