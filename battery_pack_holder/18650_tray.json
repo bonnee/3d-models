@@ -1,0 +1,19 @@
+{
+    "parameterSets": {
+        "ups": {
+            "$fn": "60",
+            "bankColumns": "2",
+            "bankRows": "10",
+            "batDia": "18.8",
+            "batSpacing": "1",
+            "batStopLip": "3",
+            "borderWidth": "3",
+            "cornerFilletRadius": "0.7",
+            "filletFollowsCell": "true",
+            "partHeight": "8",
+            "stripHeight": "1.5",
+            "stripWidth": "8"
+        }
+    },
+    "fileFormatVersion": "1"
+}

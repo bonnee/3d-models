@@ -2,4 +2,8 @@
 *.FCBak
 __pycache__
 *.secret
+*.gcode
 
+*.stl
+*.step
+*.3mf
